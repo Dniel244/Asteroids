@@ -1,6 +1,8 @@
 void game() {
   background(0);
   
+
+  
   int i = 0;
   
  while(i < myObjects.size()) {
@@ -10,8 +12,9 @@ void game() {
   
   if (myObj.lives == 0) {
     myObjects.remove(i);
-  } else {
-   i++;           
   }
-} 
+  i++;
+}
+
+
 }

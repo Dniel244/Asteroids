@@ -11,16 +11,42 @@ class Ship extends GameObject {
     dir = new PVector(0, -0.1);
     shotTimer = 0;
     threshold = 30;
-    dcooldown = 0;
+    dcooldown = 120;
   }
   
   //3. Behaviour Functions
   void show() {
-    pushMatrix();
+    int j = 200;
+    
+    //show
+        int i = 0;
+while(i < myObjects.size()) {
+  GameObject myObj = myObjects.get(i);
+  if (myObj instanceof Asteroid) {
+    if ( dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + myObj.size) { 
+  //f = 255;
+  // g = 255;
+  // h = 0;
+  // j = 0;
+
+    if (dcooldown < 120) {
+   j = 100;
+    }
+        
+  
+
+
+  }
+ }
+  
+  
+  i++;
+  }
+  pushMatrix();
     translate(loc.x, loc.y);
     rotate(dir.heading());
     noFill();
-    stroke(255);
+    stroke(0, 0, j);
     triangle(-25, -12.5, -25, 12.5, 25, 0);
     popMatrix();
   }
@@ -41,6 +67,10 @@ class Ship extends GameObject {
     if (spacekey && shotTimer >= threshold) {
     myObjects.add(new Bullet());
     shotTimer = 0;
+    
+    //cooldown
+
+     
     }
         
         
@@ -51,14 +81,19 @@ while(i < myObjects.size()) {
   GameObject myObj = myObjects.get(i);
   if (myObj instanceof Asteroid) {
     if ( dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + myObj.size) { 
-    
+    dcooldown++;
+    if (dcooldown > 120) {
     lives = lives - 1;
-
+    dcooldown = 0;
+    println(" " + lives);
+    }
         
   
 
 
-  }
+  } 
+
+  
  }
   
   

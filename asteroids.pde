@@ -28,6 +28,7 @@ ArrayList<GameObject> myObjects;
 //SETUP/DRAW-------------------------------------------------------------------
 void setup() {
   mode = GAME;
+  colorMode(HSB);
  size(800, 600);
  myShip = new Ship();
  myObjects = new ArrayList<GameObject>();
