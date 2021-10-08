@@ -1,7 +1,7 @@
 class Bullet extends GameObject {
 
   int timer;
-  
+
   Bullet() {
     timer = 60;
     lives = 1;
@@ -10,19 +10,19 @@ class Bullet extends GameObject {
     vel.setMag(10);
     size = 10;
   }
-  
+
   void show() {
     stroke(0, 0, 255);
     fill(0, 0, 255);
     ellipse(loc.x, loc.y, size, size);
   }
-  
+
   void act() {
     super.act();
-    
+
     timer--;
     if (timer == 0) {
-     lives = 0; 
+      lives = 0;
     }
   }
 }
