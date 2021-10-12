@@ -3,8 +3,10 @@ void mouseReleased() {
     introClicks();
   } else if (mode == GAME) {
     gameClicks();
-  } else if (mode == GAMEOVER) {
-    gameoverClicks();
+  } else if (mode == GAMEOVERLOSE) {
+    gameoverLoseClicks();
+  } else if (mode == GAMEOVERWIN) {
+    gameoverWinClicks();
   } else if (mode == PAUSE) {
     pauseClicks();
   }

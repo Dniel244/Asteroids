@@ -5,13 +5,16 @@ class Ship extends GameObject {
   int shotTimer, threshold, dcooldown;
   //2. Constructor(s)
   Ship() {
+
     lives = 3;
     loc = new PVector(width/2, height/2);
     vel = new PVector (0, 0);
     dir = new PVector(0, -0.1);
     shotTimer = 0;
-    threshold = 30;
+    threshold = 15;
     dcooldown = 120;
+    
+    
   }
 
   //3. Behaviour Functions

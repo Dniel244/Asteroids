@@ -11,8 +11,12 @@ Asteroids project
 int mode;
 final int INTRO = 0;
 final int GAME = 1;
-final int GAMEOVER = 2;
-final int PAUSE = 3;
+final int GAMEOVERLOSE = 2;
+final int GAMEOVERWIN = 3;
+final int PAUSE = 4;
+
+//SCORE
+int score = 0;
 
 
 //FONT-------------------------------------------------------------------------------
@@ -40,12 +44,13 @@ void setup() {
   myShip = new Ship();
   myObjects = new ArrayList<GameObject>();
   myObjects.add(myShip);
+  
+  int j = 0;
+  while (j <= 8) {
   myObjects.add(new Asteroid());
-  myObjects.add(new Asteroid());
-  myObjects.add(new Asteroid());
-  myObjects.add(new Asteroid());
-  myObjects.add(new Asteroid());
-  myObjects.add(new Asteroid());
+
+  j++;
+  }
 
   //gif
   numberOfFrames = 29;
@@ -63,8 +68,10 @@ void draw() {
     intro();
   } else if (mode == GAME) {
     game();
-  } else if (mode == GAMEOVER) {
-    gameover();
+  } else if (mode == GAMEOVERLOSE) {
+    gameoverLose();
+  } else if (mode == GAMEOVERWIN) {
+    gameoverWin();
   } else if (mode == PAUSE) {
     pause();
   } else {

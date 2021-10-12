@@ -1,8 +1,6 @@
 void game() {
   background(0);
 
-
-
   int i = 0;
 
   while (i < myObjects.size()) {
@@ -16,11 +14,13 @@ void game() {
 
     if (myObj instanceof Ship) {
       if (myObj.lives == 0) {
-        mode = GAMEOVER;
+        mode = GAMEOVERLOSE;
       }
     }
     i++;
   }
+  
+  if (score >= 117) mode = GAMEOVERWIN;
 }
 
 void gameClicks() {
