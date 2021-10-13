@@ -1,5 +1,6 @@
 void game() {
   background(0);
+  //text("lives:" + glives, 700, 0);
 
   int i = 0;
 
@@ -8,11 +9,12 @@ void game() {
     myObj.show();
     myObj.act();
 
-    if (myObj.lives == 0) {
+    if (myObj.lives <= 0) {
       myObjects.remove(i);
     }
 
     if (myObj instanceof Ship) {
+
       if (myObj.lives == 0) {
         mode = GAMEOVERLOSE;
       }

@@ -18,5 +18,7 @@ void gameoverLoseClicks() {
   myObjects.add(new Asteroid());
 
   j++;
+  
+  score = 0;
   }
 }
