@@ -11,7 +11,7 @@ void gameoverLoseClicks() {
   mode = INTRO;
    myShip = new Ship();
   myObjects = new ArrayList<GameObject>();
-  myObjects.add(myShip);
+
    
    int j = 0;
   while (j <= 8) {
@@ -21,4 +21,7 @@ void gameoverLoseClicks() {
   
   score = 0;
   }
+  
+    myObjects.add(myShip);
+    
 }

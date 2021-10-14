@@ -1,7 +1,15 @@
-void game() {
-  background(0);
-  //text("lives:" + glives, 700, 0);
+int UFOTimer = 1000;
+int UFOThreshold = 1000;
 
+void game() {
+  background(255);
+
+  UFOTimer++;
+  
+  if (UFOTimer >= UFOThreshold) {
+    myObjects.add (new UFO());
+    UFOTimer = 0;
+  }
   int i = 0;
 
   while (i < myObjects.size()) {
@@ -17,13 +25,21 @@ void game() {
 
       if (myObj.lives == 0) {
         mode = GAMEOVERLOSE;
+      } else if (myObj.lives > 0) {
+        fill(0, 200, 200);
+        textAlign(CENTER);
+        textSize(50);
+        text("lives:" + myObj.lives, 700, 100);
       }
     }
     i++;
   }
-  
+
+
+
   if (score >= 117) mode = GAMEOVERWIN;
 }
 
 void gameClicks() {
+  mode = PAUSE;
 }

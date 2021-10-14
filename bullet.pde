@@ -12,8 +12,8 @@ class Bullet extends GameObject {
   }
 
   void show() {
-    stroke(0, 0, 255);
-    fill(0, 0, 255);
+    stroke(0);
+    fill(0);
     ellipse(loc.x, loc.y, size, size);
   }
 

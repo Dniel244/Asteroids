@@ -1,9 +1,10 @@
+  int c;
 class Fire extends GameObject {
 
   int t; //transparecy
   PVector nudge;
   int r;
-  int c;
+
 
   Fire() {
     lives = 1;

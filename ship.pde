@@ -1,7 +1,7 @@
-class Ship extends GameObject {
   int lightBlue = #00FFA3;
   int darkBlue = #0D36FC;
-  int j = darkBlue;
+  int icolor = darkBlue;
+class Ship extends GameObject {
   //1. Instance Variables
   PVector dir;
   int shotTimer, bthreshold, itimer, ithreshold;
@@ -29,7 +29,7 @@ class Ship extends GameObject {
     rotate(dir.heading());
     noFill();
     strokeWeight(5);
-    stroke(j);
+    stroke(icolor);
     triangle(-25, -12.5, -25, 12.5, 25, 0);
     popMatrix();
   }
@@ -69,7 +69,7 @@ class Ship extends GameObject {
 
     if (itimer >= ithreshold) {
 
-      j = lightBlue;
+      icolor = lightBlue;
       int i = 0;
       while (i < myObjects.size()) {
         GameObject myObj = myObjects.get(i);
@@ -77,7 +77,7 @@ class Ship extends GameObject {
           if ( dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + myObj.size) {
             lives--;
             itimer = 0;
-            j = darkBlue;
+            icolor = darkBlue;
           }
         }
         i++;

@@ -45,14 +45,15 @@ void setup() {
   size(800, 600);
   myShip = new Ship();
   myObjects = new ArrayList<GameObject>();
-  myObjects.add(myShip);
-  
+
+
   int j = 0;
   while (j <= 8) {
-  myObjects.add(new Asteroid());
+    myObjects.add(new Asteroid());
 
-  j++;
+    j++;
   }
+  myObjects.add(myShip);
 
   //gif
   numberOfFrames = 29;
