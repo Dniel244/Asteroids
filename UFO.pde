@@ -1,9 +1,11 @@
 class UFO extends GameObject {
+  //instance variables
+  PVector dir;
   //constructor
   UFO() {
     lives = 1;
-    loc = new PVector(width/2, 100);
-    vel = new PVector(-1, 0);
+    loc = new PVector(UFOx, UFOy);
+    vel = new PVector(UFOvx, UFOvy);
     size = 75;
   }
 
@@ -23,14 +25,14 @@ class UFO extends GameObject {
   void act() {
     super.act();
 
+
     int i = 0;
     while (i < myObjects.size()) {
       GameObject myObj = myObjects.get(i);
       if (myObj instanceof Bullet) {
-        if ( dist(loc.x, loc.y, myObj.loc.x , myObj.loc.y ) < size/2 + myObj.size) {
+        if ( dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y ) < size/2 + myObj.size) {
           myObj.lives = 0; 
           lives = 0;
-         
         }
       }
 

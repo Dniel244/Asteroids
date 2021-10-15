@@ -9,19 +9,21 @@ void gameoverLose() {
 
 void gameoverLoseClicks() {
   mode = INTRO;
-   myShip = new Ship();
+  myShip = new Ship();
   myObjects = new ArrayList<GameObject>();
 
-   
-   int j = 0;
-  while (j <= 8) {
-  myObjects.add(new Asteroid());
 
-  j++;
-  
-  score = 0;
+  int j = 0;
+  while (j <= 8) {
+    myObjects.add(new Asteroid());
+
+    j++;
+
+    score = 0;
   }
-  
-    myObjects.add(myShip);
-    
+
+  myObjects.add(myShip);
+  myShip.itimer = 0;
+  icolor = darkBlue;
+  UFOTimer = 1000;
 }

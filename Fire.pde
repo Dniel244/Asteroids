@@ -1,4 +1,4 @@
-  int c;
+int c;
 class Fire extends GameObject {
 
   int t; //transparecy
@@ -19,7 +19,7 @@ class Fire extends GameObject {
     vel = myShip.dir.copy();
     vel.rotate(PI+random(-0.5, 0.5)); //180 degree
     vel.setMag(2);
-    
+
     r = int(random(1, 4));
     if (r == 1) {
       c = #FA4300;

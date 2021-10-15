@@ -73,7 +73,7 @@ class Ship extends GameObject {
       int i = 0;
       while (i < myObjects.size()) {
         GameObject myObj = myObjects.get(i);
-        if (myObj instanceof Asteroid) {
+        if (myObj instanceof Asteroid || myObj instanceof UFO || myObj instanceof UFOBullet) {
           if ( dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + myObj.size) {
             lives--;
             itimer = 0;
@@ -83,5 +83,7 @@ class Ship extends GameObject {
         i++;
       }
     }
+    
+    
   }
 }
