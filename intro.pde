@@ -2,24 +2,6 @@ void intro() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   //gif
   image(gif[f], 0, 0, width, height);
   f++;

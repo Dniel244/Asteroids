@@ -1,9 +1,10 @@
-int UFOTimer = 1000;
-int UFOThreshold = 1000;
+int UFOTimer = 900;
+int UFOThreshold = 900;
 int UFOshotTimer = 0;
-int UFObthreshold = 300;
+int UFObthreshold = 100;
 int t;
 int UFOx, UFOy, UFOvx, UFOvy;
+int UFODtime;
 
 void game() {
 
@@ -11,20 +12,17 @@ void game() {
 
   UFOTimer++;
 
-
-
-
-
-
-
-
   if (UFOTimer >= UFOThreshold) {
-    t = int(random(0, 4));
+    //t = int(random(0, 4));
+    t = 3;
+    UFODtime = 0;
+
     if (t == 0) {
       UFOx = int(random(0, width));
       UFOy = 0;
       UFOvx = 0;
       UFOvy = +1;
+
 
       if (UFOy >= 100) {
         UFOvy = 0;
@@ -86,20 +84,11 @@ void game() {
     if (myObj instanceof UFO) {
       if (myObj.lives > 0) {
         UFOshotTimer++;
-
-
-        if (UFOshotTimer >= UFObthreshold) {
-          myObjects.add(new UFOBullet());
-          UFOshotTimer = 0;
-        }
+        UFODtime++;
       }
     }
     i++;
   }
-
-
-
-  if (score >= 117) mode = GAMEOVERWIN;
 }
 
 void gameClicks() {

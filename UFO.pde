@@ -26,6 +26,44 @@ class UFO extends GameObject {
     super.act();
 
 
+    if (t == 0) {
+      if (UFODtime >= 600) {
+        lives = 0;
+        UFODtime = 0;
+      }
+    }
+    if (t == 1) {
+      if (UFODtime >= 600) {
+        lives = 0;
+        UFODtime = 0;
+      }
+    }
+    if (t == 2) {
+      if (UFODtime >= 850) {
+        lives = 0;
+        UFODtime = 0;
+      }
+    }
+    if (t == 3) {
+      if (UFODtime >= 850) {
+        lives = 0;
+        UFODtime = 0;
+      }
+    }
+
+
+    println(" "+UFODtime);
+
+    float vx = myShip.loc.x - loc.x;
+    float vy = myShip.loc.y - loc.y;
+    if (UFOshotTimer >= UFObthreshold) {
+      myObjects.add(new UFOBullet(loc.x, loc.y, vx, vy));
+      UFOshotTimer = 0;
+    }
+
+
+
+
     int i = 0;
     while (i < myObjects.size()) {
       GameObject myObj = myObjects.get(i);

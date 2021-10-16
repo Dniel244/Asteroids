@@ -25,5 +25,6 @@ void gameoverLoseClicks() {
   myObjects.add(myShip);
   myShip.itimer = 0;
   icolor = darkBlue;
-  UFOTimer = 1000;
+  UFOTimer = 851;
+  UFODtime = 0;
 }

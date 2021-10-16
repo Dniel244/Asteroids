@@ -2,13 +2,12 @@ class UFOBullet extends GameObject {
 
   int UFOBtimer;
 
-  UFOBullet() {
-    UFOBtimer = 60;
+  UFOBullet(float x, float y, float vx, float vy) {
+    loc = new PVector(x, y);
+    vel = new PVector(vx, vy);
+    UFOBtimer = 80;
     lives = 1;
-    if (UFOshotTimer >= UFObthreshold) {
-      loc = new PVector(UFOx, UFOy);
-      vel = new PVector(UFOvx, UFOvy);
-    }
+
     vel.setMag(5);
     size = 10;
   }

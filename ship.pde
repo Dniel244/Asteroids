@@ -1,6 +1,6 @@
-  int lightBlue = #00FFA3;
-  int darkBlue = #0D36FC;
-  int icolor = darkBlue;
+int lightBlue = #00FFA3;
+int darkBlue = #0D36FC;
+int icolor = darkBlue;
 class Ship extends GameObject {
   //1. Instance Variables
   PVector dir;
@@ -80,10 +80,9 @@ class Ship extends GameObject {
             icolor = darkBlue;
           }
         }
+
         i++;
       }
     }
-    
-    
   }
 }
