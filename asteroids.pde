@@ -57,7 +57,7 @@ ArrayList<GameObject> myObjects;
 
 //SETUP/DRAW-------------------------------------------------------------------
 void setup() {
-  mode = GAMEOVERLOSE;
+  mode = INTRO;
   colorMode(HSB);
   rectMode(CENTER);
   size(800, 600);
