@@ -1,3 +1,4 @@
+//when mouse clicked
 void mouseReleased() {
   if (mode == INTRO) {
     introClicks();

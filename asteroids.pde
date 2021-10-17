@@ -15,14 +15,27 @@ final int GAMEOVERLOSE = 2;
 final int GAMEOVERWIN = 3;
 final int PAUSE = 4;
 
-//SCORE
+//SCORE------------------------------------------------------------------
 int score = 0;
+//colors------------------------------------------------------------------
+int lightBlue = #00FFA3;
+int darkBlue = #0D36FC;
+int icolor = darkBlue;
+int red = #CB2727;
+int green = #2DC916;
+int grey = #9B9B9B;
+int white = #FFFFFF;
+int black = #030303;
+int redOrange = #FA4300;
+int orange = #FA8A00;
+int yellow = #FAE600;
+
 
 
 
 
 //FONT-------------------------------------------------------------------------------
-
+PFont Asteroid;
 //GIF-------------------------------------------------------------------------------
 PImage[] gif;
 int numberOfFrames;
@@ -32,6 +45,11 @@ int f = 0;
 
 //MOVEMENT VARIABLES------------------------------------------------------------------
 boolean upkey, downkey, leftkey, rightkey, spacekey;
+//TELEPORT---------------------------------------------------------------------
+boolean teleport = false;
+
+
+
 //SHIP------------------------------------------------------------------
 Ship myShip;
 //ARRAY LIST------------------------------------------------------------------
@@ -39,20 +57,26 @@ ArrayList<GameObject> myObjects;
 
 //SETUP/DRAW-------------------------------------------------------------------
 void setup() {
-  mode = INTRO;
+  mode = GAMEOVERLOSE;
   colorMode(HSB);
   rectMode(CENTER);
   size(800, 600);
+  
+  Asteroid = createFont("Asteroid.ttf", 50);
+
+  //prepare ship
   myShip = new Ship();
   myObjects = new ArrayList<GameObject>();
 
-
+  //spawn asteroids
   int j = 0;
   while (j <= 8) {
     myObjects.add(new Asteroid());
 
     j++;
   }
+
+  //spawn ship
   myObjects.add(myShip);
 
   //gif
@@ -65,7 +89,7 @@ void setup() {
     i++;
   }
 }
-
+//mode framework
 void draw() {
   if (mode == INTRO) {
     intro();

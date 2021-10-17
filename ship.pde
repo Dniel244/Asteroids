@@ -1,6 +1,4 @@
-int lightBlue = #00FFA3;
-int darkBlue = #0D36FC;
-int icolor = darkBlue;
+
 class Ship extends GameObject {
   //1. Instance Variables
   PVector dir;
@@ -18,11 +16,12 @@ class Ship extends GameObject {
     ithreshold = 180;
   }
 
+
   //3. Behaviour Functions
   void show() {
 
 
-    //show
+    //how ship appears
 
     pushMatrix();
     translate(loc.x, loc.y);
@@ -40,23 +39,28 @@ class Ship extends GameObject {
 
     if (vel.mag() > 5)
       vel.setMag(5);
-
+//shot and immunity timers
     shotTimer++;
     itimer++;
 
-
+//moving forward/spawning fire
     if (upkey) {   
       vel.add(dir);
       int j = 0;
+      //80 fire particles
       while (j <=80) {
         myObjects.add(new Fire());
 
         j++;
       }
     }
+    //moving bacl
     if (downkey)  vel.sub(dir);
+    //turning left
     if (leftkey)  dir.rotate( -radians(5) );
+    //turning right
     if (rightkey) dir.rotate( radians(5) );
+    //firing bullets
     if (spacekey && shotTimer >= bthreshold) {
       myObjects.add(new Bullet());
       shotTimer = 0;
@@ -67,12 +71,17 @@ class Ship extends GameObject {
 
 
 
+    //showing immunity
     if (itimer >= ithreshold) {
 
       icolor = lightBlue;
+
+      //ship collisions
       int i = 0;
       while (i < myObjects.size()) {
         GameObject myObj = myObjects.get(i);
+
+
         if (myObj instanceof Asteroid || myObj instanceof UFO || myObj instanceof UFOBullet) {
           if ( dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + myObj.size) {
             lives--;
@@ -80,9 +89,10 @@ class Ship extends GameObject {
             icolor = darkBlue;
           }
         }
-
         i++;
       }
     }
+
+    
   }
 }

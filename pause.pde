@@ -1,7 +1,8 @@
 void pause() {
-  background(255);
+  background(white);
 }
 
+//clicking the screen
 void pauseClicks() {
   mode = GAME;
 }

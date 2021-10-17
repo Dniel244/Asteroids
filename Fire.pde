@@ -1,16 +1,16 @@
-int c;
+int cf; //color of fire
 class Fire extends GameObject {
 
   int t; //transparecy
-  PVector nudge;
-  int r;
+  PVector nudge; //offset of fire
+  int r; //color randomizer
 
-
+  //Fire constructor
   Fire() {
     lives = 1;
     size  = 10;
     t     = 255;
-    //loc = new PVector (myShip.loc.x, myShip.loc.y);
+    //fire loc same as ship and coming out of the back
     loc = myShip.loc.copy();
     nudge = myShip.dir.copy();
     nudge.rotate(PI);
@@ -20,24 +20,27 @@ class Fire extends GameObject {
     vel.rotate(PI+random(-0.5, 0.5)); //180 degree
     vel.setMag(2);
 
+    //color randomization
     r = int(random(1, 4));
     if (r == 1) {
-      c = #FA4300;
+      cf = redOrange;
     } else if (r == 2) {
-      c = #FA8A00;
+      cf = orange;
     } else if (r == 3) {
-      c = #FAE600;
+      cf = yellow;
     }
   }
 
+  //how fire appears
   void show() {
-    noStroke();
-    fill(c, t);
+    noFill();
+    stroke(cf, t);
     circle(loc.x, loc.y, size);
   }
 
   void act() {
     super.act();
+    //deleting fire particles
     t = t - 10;
     if (t <= 0) lives = 0;
   }
